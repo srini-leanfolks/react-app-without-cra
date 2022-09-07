@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -8,11 +7,11 @@ module.exports = {
   output: {
     filename: 'js/[name].js',
     path: path.join(__dirname, 'dist'),
-    clean: true,
+    clean: true
   },
   resolve: {
     mainFiles: ['index'],
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -21,37 +20,37 @@ module.exports = {
     liveReload: false,
     open: true,
     hot: true,
-    port: 3000,
+    port: 3000
+  },
+  optimization: {
+    nodeEnv: 'development'
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/i,
         exclude: /node_modules/,
-        use: ['ts-loader'],
+        use: ['ts-loader']
       },
       {
         test: /\.(js|jsx)$/i,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader']
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(jpg|jpeg|png|gif|ico)$/i,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.svg$/i,
-        use: ['svg-inline-loader'],
-      },
-    ],
+        test: /\.(jpg|jpeg|png|gif|ico|svg)$/i,
+        type: 'asset'
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-    }),
-  ],
+      favicon: './src/favicon.ico'
+    })
+  ]
 };
