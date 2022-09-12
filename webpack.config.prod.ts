@@ -1,10 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+import path from 'path';
+import type { Configuration } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
-module.exports = {
+const config: Configuration = {
   mode: 'production',
   entry: './src/index.tsx',
   output: {
@@ -82,3 +83,5 @@ module.exports = {
     })
   ]
 };
+
+export default config;

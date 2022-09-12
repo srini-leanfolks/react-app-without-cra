@@ -3,8 +3,8 @@
   "version": "1.1.0",
   "description": "it creates a react app with webpack only",
   "scripts": {
-    "dev": "webpack-dev-server --config=webpack.config.dev.js",
-    "build": "webpack --config=webpack.config.prod.js"
+    "dev": "webpack-dev-server --config=webpack.config.dev.ts",
+    "build": "webpack --config=webpack.config.prod.ts"
   },
   "author": "Srinivasan Mohan <srinivasan.m@leanfolks.com>",
   "license": "ISC",
